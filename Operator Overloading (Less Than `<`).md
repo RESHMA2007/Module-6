@@ -1,47 +1,52 @@
-# 🐍 Python OOP: Operator Overloading (Less Than `<`)
+# # 🐍 Python OOP: Polymorphism with Classes
 
 ## 🎯 AIM
 
-To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
+To create two specific classes — `Beans` and `Mango`. Then, create a **generic function** that can accept any object and determine its **type** (Fruit or Vegetable) and **color**, using polymorphism.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Create Class `A`**:
-   - Define the `__init__()` method to initialize the object with a value `a`.
+1. **Create Class `Beans`**:
+   - Define `type()` method that prints `"Vegetable"`.
+   - Define `color()` method that prints `"Green"`.
 
-2. **Overload the `<` Operator**:
-   - Define the `__lt__()` method with logic:
-     - If `self.a < o.a`, return `"ob1 is less than ob2"`
-     - Else, return `"ob2 is less than ob1"`
+2. **Create Class `Mango`**:
+   - Define `type()` method that prints `"Fruit"`.
+   - Define `color()` method that prints `"Yellow"`.
 
-3. **Create Objects**:
-   - Instantiate two objects `ob1` and `ob2` with values.
+3. **Define Generic Function `func(obj)`**:
+   - Call `obj.type()` and `obj.color()` — this works with both `Beans` and `Mango` objects, showcasing **polymorphism**.
 
-4. **Use `<` Operator**:
-   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
+4. **Create Objects**:
+   - Instantiate `Beans` and `Mango`.
+   - Pass them to `func()` and execute the program.
 
 ---
 
 ## 💻 Program
 ```
-class A:
-      def __init__(self,value):
-          self.value=value
-      def __lt__(self,other):
-          if isinstance(other,A):
-              return self.value<other.value
-          return NotImplemented
-  ob1=A(20)
-  ob2=A(10)
-  if ob2<ob1:
-      print("ob2 is less than ob1")
-  else:
-      print("ob1 is less than ob2")
+class Beans(): 
+       def type(self): 
+         print("Vegetable") 
+       def color(self):
+         print("Green") 
+  class Mango(): 
+       def type(self): 
+         print("Fruit") 
+       def color(self): 
+         print("Yellow")      
+  def func(obj): 
+      obj.type()
+      obj.color()
+  obj_Beans=Beans()
+  obj_mango=Mango()
+  func(obj_Beans) 
+  func(obj_mango)
 ```
 ## Output
-![e33d83c5-5ea2-4b48-9d54-e64da535fab6](https://github.com/user-attachments/assets/fd35e148-e435-4a94-b005-a36c745669d4)
+![126bda0a-058b-4c7b-864f-72cab0a390d3](https://github.com/user-attachments/assets/0d05e38f-18f5-4e8e-a845-158c5380311e)
 
 ## Result
 Thus, the program has successfully executed
